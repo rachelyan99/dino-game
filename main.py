@@ -1,7 +1,7 @@
 import arcade
 
 SCREEN_WIDTH = 900
-SCREEN_HEIGHT = 300
+SCREEN_HEIGHT = 250
 SCREEN_TITLE = "Dino Game"
 
 
@@ -23,11 +23,11 @@ class MyGame(arcade.Window):
         self.ground_list = arcade.SpriteList()
 
         dino = arcade.Sprite("./dino.png", scale=0.2,
-                             center_x=SCREEN_WIDTH/2, center_y=SCREEN_HEIGHT/2)
+                             center_x=SCREEN_WIDTH/8, center_y=SCREEN_HEIGHT/5)
         self.dino_list.append(dino)
 
-        ground = arcade.Sprite(filename="./ground.gif",
-                               scale=1.5, center_x=SCREEN_WIDTH/2, center_y=50)
+        ground = arcade.Sprite(filename="./dion gif.jpg",
+                               scale=1.7, center_x=SCREEN_WIDTH/2, center_y=125)
         self.ground_list.append(ground)
 
     def on_draw(self):
