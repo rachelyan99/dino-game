@@ -1,4 +1,7 @@
 import arcade
+from dino import MyDino
+from ground import Ground
+
 
 SCREEN_WIDTH = 900
 SCREEN_HEIGHT = 250
@@ -6,38 +9,50 @@ SCREEN_TITLE = "Dino Game"
 
 
 class MyGame(arcade.Window):
-
+    
     def __init__(self):
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
 
-        self.dino_list = None
-        self.cactus_list = None
-        self.ground_list = None
+        # Instantiate Objects
+        self.dino = MyDino()
+        self.ground = Ground()
 
+        # Set up window
+        self.setup_window()
+
+    def setup_window(self):
         arcade.set_background_color(arcade.color.WHITE)
 
-    def setup(self):
+    def on_update(self, delta_time):
+        # update ground
+        self.ground.update()
+        # update score
+        
 
-        self.dino_list = arcade.SpriteList()
-        self.cactus_list = arcade.SpriteList()
-        self.ground_list = arcade.SpriteList()
+        # update endGame
+        pass
 
-        dino = arcade.Sprite("./dino.png", scale=0.2,
-                             center_x=SCREEN_WIDTH/8, center_y=SCREEN_HEIGHT/5)
-        self.dino_list.append(dino)
-
-        ground = arcade.Sprite(filename="./dion gif.jpg",
-                               scale=1.7, center_x=SCREEN_WIDTH/2, center_y=125)
-        self.ground_list.append(ground)
+    def on_key_press(self, key, modifiers):
+        # dino jump
+        pass
+        
+            
+    def endGame(self):
+        # if collisions
+        
+        #stops the movement
+        #pauses the game
+        #pauses the score 
+        #displays end game text and restart game option
+        pass
 
     def on_draw(self):
-        self.ground_list.draw()
-        self.dino_list.draw()
-
+        self.ground.get_list().draw()   # must draw ground before dino
+        self.dino.get_sprite().draw()
+        
 
 def main():
     window = MyGame()
-    window.setup()
     arcade.run()
 
 
